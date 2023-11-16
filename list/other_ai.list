@@ -33,7 +33,6 @@ DOMAIN-SUFFIX,compute-pipe.com
 DOMAIN-SUFFIX,stripe.network
 DOMAIN-SUFFIX,gpt3sandbox.com
 DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,oaistatic.com
-DOMAIN-SUFFIX,statsigapi.net
-DOMAIN-SUFFIX,oaiusercontent.com
-DOMAIN-SUFFIX,statsigapi.net
+DOMAIN-SUFFIX,oaistatic.com 
+DOMAIN-SUFFIX,oaiusercontent.com 
+DOMAIN-SUFFIX,fonts.googleapis.com
