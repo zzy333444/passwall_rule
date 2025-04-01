@@ -149,7 +149,7 @@ rule-anchor:
 # 排在前面的，会优先作用
 rule-providers: 
   # 单应用
-  cursor_domain: { <<: *domain, url: "https://raw.githubusercontent.com/zzy333444/passwall_rule/main/list/cursor.list"}
+  cursor_domain: { <<: *class, url: "https://raw.githubusercontent.com/zzy333444/passwall_rule/main/list/cursor.list"}
   youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
   netflix_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
