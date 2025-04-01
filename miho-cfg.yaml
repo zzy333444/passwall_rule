@@ -120,24 +120,25 @@ proxy-groups:
 
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
+# 重要且需要精确控制的规则放在前面
 rules:
   - RULE-SET,private_domain,直连
-  - RULE-SET,apple_domain,[类]-AppleCN🍎
-  - RULE-SET,proxylite,🚀 国外流量
-  - RULE-SET,ai,[类]-海外AI🤖
   - RULE-SET,shopee_domain,[单]-Shopee🛍️
   - RULE-SET,cursor_domain,[单]-Cursor🐶
   - RULE-SET,youtube_domain,[单]-YouTube📹 
   - RULE-SET,tiktok_domain,[单]-TikTok🎵 
   - RULE-SET,telegram_domain,[单]-Telegram📲
   - RULE-SET,netflix_domain,[单]-Netflix🎥
+  - RULE-SET,cn_domain,直连 
+  - RULE-SET,china_only,直连
+  - RULE-SET,cn_ip,直连
+  - RULE-SET,ai,[类]-海外AI🤖
+  - RULE-SET,apple_domain,[类]-AppleCN🍎
+  - RULE-SET,proxylite,🚀 国外流量 
   - RULE-SET,gfw_domain,🚀 国外流量
   - RULE-SET,geolocation-!cn,🚀 国外流量
-  - RULE-SET,cn_domain,直连 
   - RULE-SET,netflix_ip,[单]-Netflix🎥,no-resolve
   - RULE-SET,telegram_ip,[单]-Telegram📲,no-resolve
-  - RULE-SET,cn_ip,直连
-  - RULE-SET,china_only,直连
   - MATCH,🐟 漏网之鱼
 
 # 规则集
