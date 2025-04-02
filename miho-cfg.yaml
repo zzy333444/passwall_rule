@@ -121,18 +121,7 @@ proxy-groups:
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 # 重要且需要精确控制的规则放在前面
-rules:
-  # 针对wifi软路由的配置，一般人用不到
-  # 但是注意，自己的路由器，不要有192.168.2x.x的ip段，否则规则都不会生效
-  - SRC-IP-CIDR,192.168.22.0/24,🇨🇳 直连
-  - SRC-IP-CIDR,192.168.23.0/24,🇨🇳 直连
-  - SRC-IP-CIDR,192.168.24.0/24,🇨🇳 直连
-  - SRC-IP-CIDR,192.168.25.0/24,🇨🇳 直连
-  - SRC-IP-CIDR,192.168.26.0/24,🇨🇳 直连
-  - SRC-IP-CIDR,192.168.27.0/24,🇨🇳 直连
-  - SRC-IP-CIDR,192.168.28.0/24,🇨🇳 直连
-  - SRC-IP-CIDR,192.168.29.0/24,🇨🇳 直连
-
+rules: 
   - RULE-SET,private_domain,🇨🇳 直连
   - RULE-SET,shopee_domain,[单]-Shopee🛍️
   - RULE-SET,cursor_domain,[单]-Cursor🐶

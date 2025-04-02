@@ -1,14 +1,185 @@
 # 针对openwrt-wifi的配置
 
-# proxies:
+# 机场订阅
+proxy-providers:
+  Airport1:
+    url: "https://ul6zrv9.bigme.online/api/v1/client/subscribe?token=daaae2f1441a2f9668ee794d2f43acd3"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 200
+    proxy: 🇨🇳 直连
+
+# 节点信息
+proxies:
+  - {name: 🇨🇳 直连, type: direct, udp: true}
+
+# 全局配置 
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7894
+allow-lan: true
+bind-address: "*"
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+log-level: warning
+# 软路由不支持
+# find-process-mode: 'off' 
+# interface-name: en0
+global-client-fingerprint: chrome
+keep-alive-idle: 600
+keep-alive-interval: 15
+disable-keep-alive: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# 控制面板
+external-controller: 0.0.0.0:9090
+secret: ""
+external-ui: "/etc/mihomo/run/ui"
+external-ui-name: zashboard
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+
+# 入站  
+tun:
+  enable: true
+  # system/gvisor/mixed
+  stack: mixed
+  dns-hijack: ["any:53", "tcp://any:53"]
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+# DNS模块
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "rule-set:private_domain,cn_domain"
+    - "+.services.googleapis.cn"
+    - "+.xn--ngstr-lra8j.com"
+    - "time.*.com"
+    - "+.pool.ntp.org"
+    - "+.ntp.tencent.com"
+    - "+.ntp1.aliyun.com"
+    - "+.ntp.ntsc.ac.cn"
+    - "+.cn.ntp.org.cn"
+  default-nameserver:
+    - 223.5.5.5
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+  # namesever尽量用运营商提供的DNS
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
 
 
+# 国家列表
+country_pr: &country_pr ["[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵", "[自动]-台湾🏝️", "[自动]-美国🇺🇸", "✈️ 手动选择"]
+# 亚洲国家列表（由于地理位置，一般会更快）
+asia_pr: &asia_pr ["[自动]-台湾🏝️", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵"]
+with_global: &with_global ["🚀 国外流量", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵", "[自动]-台湾🏝️", "[自动]-美国🇺🇸", "✈️ 手动选择"]
 
-# 针对192.168.2x.x的配置，走指定的节点
+
+# 出站策略
+proxy-groups:
+  # 常用
+  - {name: "🚀 国外流量", type: select, proxies: ["[自动]-速度最优⚡️", "✈️ 手动选择", "🇨🇳 直连"]}
+  - {name: "✈️ 手动选择", type: select, include-all: true}
+  - {name: "🐟 漏网之鱼", type: select, proxies: ["🚀 国外流量", "🇨🇳 直连"]}
+
+  # 单独的应用
+  - {name: "[单]-TikTok🎵", type: select, proxies: *country_pr}
+  - {name: "[单]-Telegram📲", type: select, proxies: *with_global}
+  - {name: "[单]-Netflix🎥", type: select, proxies: *country_pr} 
+  - {name: "[单]-Cursor🐶", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量", "[类]-海外AI🤖"]}
+  - {name: "[单]-YouTube📹", type: select, proxies: *with_global}
+  - {name: "[单]-Shopee🛍️", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))"}
+
+  # 类策略
+  - {name: "[类]-海外AI🤖", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))"}
+  - {name: "[类]-AppleCN🍎", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量"]} 
+
+  # 自动测速
+  - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|直连|Emby|土)).*)"}
+  - {name: "[自动]-香港🇭🇰", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(港|HK|Hong))" }
+  - {name: "[自动]-日本🇯🇵", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(日|JP|Japan))" }
+  - {name: "[自动]-台湾🏝️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(台|TW))" }
+  - {name: "[自动]-美国🇺🇸", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(美|US|States|America))" }
+  - {name: "[自动]-新加坡🇸🇬", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(坡|狮城|新加坡|SG))" }
+ 
+
+# 规则匹配
+# 此规则部分没有做防泄露处理，因为弊严重大于利！
+# 重要且需要精确控制的规则放在前面
 rules:
+  # 针对192.168.2x.x的配置，走指定的节点
   - SRC-IP-CIDR,192.168.23.0/24,[自动]-台湾🏝️
   - SRC-IP-CIDR,192.168.24.0/24,[自动]-新加坡🇸🇬
   - SRC-IP-CIDR,192.168.25.0/24,[自动]-美国🇺🇸
+
+  - RULE-SET,private_domain,🇨🇳 直连
+  - RULE-SET,shopee_domain,[单]-Shopee🛍️
+  - RULE-SET,cursor_domain,[单]-Cursor🐶
+  - RULE-SET,youtube_domain,[单]-YouTube📹 
+  - RULE-SET,tiktok_domain,[单]-TikTok🎵 
+  - RULE-SET,telegram_domain,[单]-Telegram📲
+  - RULE-SET,netflix_domain,[单]-Netflix🎥
+  - RULE-SET,cn_domain,🇨🇳 直连 
+  - RULE-SET,china_only,🇨🇳 直连
+  - RULE-SET,cn_ip,🇨🇳 直连
+  - RULE-SET,ai,[类]-海外AI🤖
+  - RULE-SET,apple_domain,[类]-AppleCN🍎
+  - RULE-SET,proxylite,🚀 国外流量 
+  - RULE-SET,gfw_domain,🚀 国外流量
+  - RULE-SET,geolocation-!cn,🚀 国外流量
+  - RULE-SET,netflix_ip,[单]-Netflix🎥,no-resolve
+  - RULE-SET,telegram_ip,[单]-Telegram📲,no-resolve
+  - MATCH,🐟 漏网之鱼
+
+# 规则集
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  class: &class {type: http, interval: 86400, behavior: classical, format: text}
+
+# 排在前面的，会优先作用
+rule-providers: 
+  # 单应用
+  cursor_domain: { <<: *class, url: "https://raw.githubusercontent.com/zzy333444/passwall_rule/main/list/cursor.list"}
+  youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
+  netflix_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"} 
+  tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
+  shopee_domain: { <<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/shopee.mrs"}
+
+  # 一类应用
+  private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
+  proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/master/ProxyLite.list"}
+  china_only: { <<: *class, url: "https://raw.githubusercontent.com/zzy333444/passwall_rule/main/list/china_only.list"}
+  ai: {  <<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs" }
+
+  
+  gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
+  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
+  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
+  
+  cn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
+  telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
+
 
 
 
