@@ -1,18 +1,18 @@
 # 机场订阅
 proxy-providers:
   Airport1:
-    url: "xxx"
+    url: "xx"
     type: http
     interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 200
-    proxy: 直连
+    proxy: 🇨🇳 直连
 
 # 节点信息
 proxies:
-  - {name: 直连, type: direct, udp: true}
+  - {name: 🇨🇳 直连, type: direct, udp: true}
 
 # 全局配置 
 port: 7890
@@ -93,21 +93,21 @@ with_global: &with_global ["🚀 国外流量", "[自动]-新加坡🇸🇬", "[
 # 出站策略
 proxy-groups:
   # 常用
-  - {name: "🚀 国外流量", type: select, proxies: ["[自动]-速度最优⚡️", "✈️ 手动选择", "直连"]}
+  - {name: "🚀 国外流量", type: select, proxies: ["[自动]-速度最优⚡️", "✈️ 手动选择", "🇨🇳 直连"]}
   - {name: "✈️ 手动选择", type: select, include-all: true}
-  - {name: "🐟 漏网之鱼", type: select, proxies: ["🚀 国外流量", "直连"]}
+  - {name: "🐟 漏网之鱼", type: select, proxies: ["🚀 国外流量", "🇨🇳 直连"]}
 
   # 单独的应用
   - {name: "[单]-TikTok🎵", type: select, proxies: *country_pr}
   - {name: "[单]-Telegram📲", type: select, proxies: *with_global}
   - {name: "[单]-Netflix🎥", type: select, proxies: *country_pr} 
-  - {name: "[单]-Cursor🐶", type: select, proxies: ["直连", "🚀 国外流量", "[类]-海外AI🤖"]}
+  - {name: "[单]-Cursor🐶", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量", "[类]-海外AI🤖"]}
   - {name: "[单]-YouTube📹", type: select, proxies: *with_global}
   - {name: "[单]-Shopee🛍️", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))"}
 
   # 类策略
   - {name: "[类]-海外AI🤖", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))"}
-  - {name: "[类]-AppleCN🍎", type: select, proxies: ["直连", "🚀 国外流量"]} 
+  - {name: "[类]-AppleCN🍎", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量"]} 
 
   # 自动测速
   - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|直连|Emby|土)).*)"}
@@ -122,16 +122,16 @@ proxy-groups:
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 # 重要且需要精确控制的规则放在前面
 rules:
-  - RULE-SET,private_domain,直连
+  - RULE-SET,private_domain,🇨🇳 直连
   - RULE-SET,shopee_domain,[单]-Shopee🛍️
   - RULE-SET,cursor_domain,[单]-Cursor🐶
   - RULE-SET,youtube_domain,[单]-YouTube📹 
   - RULE-SET,tiktok_domain,[单]-TikTok🎵 
   - RULE-SET,telegram_domain,[单]-Telegram📲
   - RULE-SET,netflix_domain,[单]-Netflix🎥
-  - RULE-SET,cn_domain,直连 
-  - RULE-SET,china_only,直连
-  - RULE-SET,cn_ip,直连
+  - RULE-SET,cn_domain,🇨🇳 直连 
+  - RULE-SET,china_only,🇨🇳 直连
+  - RULE-SET,cn_ip,🇨🇳 直连
   - RULE-SET,ai,[类]-海外AI🤖
   - RULE-SET,apple_domain,[类]-AppleCN🍎
   - RULE-SET,proxylite,🚀 国外流量 
