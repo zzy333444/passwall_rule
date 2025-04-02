@@ -3,7 +3,7 @@
 # 机场订阅
 proxy-providers:
   Airport1:
-    url: "https://ul6zrv9.bigme.online/api/v1/client/subscribe?token=daaae2f1441a2f9668ee794d2f43acd3"
+    url: "https"
     type: http
     interval: 86400
     health-check:
