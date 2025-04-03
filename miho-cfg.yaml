@@ -26,8 +26,7 @@ ipv6: false
 unified-delay: true
 tcp-concurrent: true
 log-level: warning
-# 软路由不支持
-# find-process-mode: 'off' 
+# find-process-mode: 'off'  # 软路由不支持
 # interface-name: en0
 global-client-fingerprint: chrome
 keep-alive-idle: 600
@@ -35,14 +34,7 @@ keep-alive-interval: 15
 disable-keep-alive: false
 profile:
   store-selected: true
-  store-fake-ip: true
-
-# 控制面板
-external-controller: 0.0.0.0:9090
-secret: ""
-external-ui: "/etc/mihomo/run/ui"
-external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+  store-fake-ip: true 
 
 # 入站  
 tun:
@@ -87,7 +79,7 @@ dns:
 country_pr: &country_pr ["[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵", "[自动]-台湾🏝️", "[自动]-美国🇺🇸", "✈️ 手动选择"]
 # 亚洲国家列表（由于地理位置，一般会更快）
 asia_pr: &asia_pr ["[自动]-台湾🏝️", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵"]
-with_global: &with_global ["🚀 国外流量", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵", "[自动]-台湾🏝️", "[自动]-美国🇺🇸", "✈️ 手动选择"]
+with_global: &with_global ["🚀 国外流量", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵", "[自动]-台湾🏝️", "[自动]-美国🇺🇸", "✈️ 手动选择", "🇨🇳 直连"]
 
 
 # 出站策略
