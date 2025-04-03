@@ -114,6 +114,11 @@ proxy-groups:
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 # 重要且需要精确控制的规则放在前面
 rules: 
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  
   - RULE-SET,private_domain,🇨🇳 直连
   - RULE-SET,shopee_domain,[单]-Shopee🛍️
   - RULE-SET,cursor_domain,[单]-Cursor🐶
