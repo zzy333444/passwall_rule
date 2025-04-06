@@ -1,6 +1,6 @@
 proxy-providers:
   Airport1:
-    url: https://bigmesub001.azure-api.net/happy/api/v1/client/subscribe?token=5e3532c4919ecf3393f5b9afde2427d0
+    url: xxx
     type: http
     interval: 86400
     health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 200}
