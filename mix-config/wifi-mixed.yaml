@@ -6,7 +6,7 @@ proxy-groups:
     type: select
     proxies: ["[自动]-台湾🏝️", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵"]
     include-all: true
-    filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|US)^(?!.*@))"
+    filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|US))^(?!.*@)"
 
   - {name: "🇺🇸美国ISP", type: relay, proxies: ["🪜美国跳板", "@US-ISP-SRC"]}
 
