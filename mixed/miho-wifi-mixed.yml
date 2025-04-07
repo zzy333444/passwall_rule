@@ -86,13 +86,13 @@ proxy-groups:
 - {name: '[自动]-香港🇭🇰', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(港|HK|Hong))'}
 - {name: '[自动]-日本🇯🇵', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(日|JP|Japan))'}
 - {name: '[自动]-台湾🏝️', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(台|TW))'}
-- {name: '[自动]-美国🇺🇸', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(美|US|States|America))^(?!.*@)'}
+- {name: '[自动]-美国🇺🇸', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '^(?!.*@)(?=(美|US|States|America))'}
 - {name: '[自动]-新加坡🇸🇬', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(坡|狮城|新加坡|SG))'}
 - name: 🪜美国跳板
   type: select
   proxies: ['[自动]-台湾🏝️', '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵']
   include-all: true
-  filter: (?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|US))^(?!.*@)
+  filter: ^(?!.*@)(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|US))
 - name: 🇺🇸美国ISP
   type: relay
   proxies: [🪜美国跳板, '@US-ISP-SRC']
