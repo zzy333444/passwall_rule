@@ -4,9 +4,9 @@ proxies:
 proxy-groups:
   - name: "🪜美国跳板"
     type: select
-    proxies: ["[自动]-台湾🏝️", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵"]
+    proxies: ["[自动]-台湾🏝️", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵", "[自动]-美国🇺🇸"]
     include-all: true
-    filter: "^(?!.*@.*)(?=.*(?:台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|US))"
+    filter: "^(?!.*@.*)(?=.*(?:台|TW|坡|狮城|SG|KR|韩国|日|JP|美国|US))"
 
   - {name: "🇺🇸美国ISP", type: relay, proxies: ["🪜美国跳板", "@US-ISP-SRC"]}
 
