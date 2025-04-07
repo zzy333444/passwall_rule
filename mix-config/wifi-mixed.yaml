@@ -1,5 +1,17 @@
+proxies:
+  - {name: "@US-ISP-SRC", server: "us202.kookeey.info", port: 26042, type: socks5, username: "4a1c5134", password: "827f841f", udp: true}
+
+proxy-groups:
+  - name: "🪜美国跳板"
+    type: select
+    proxies: ["[自动]-台湾🏝️", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵"]
+    include-all: true
+    filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|US))"
+
+  - {name: "🇺🇸美国ISP", type: relay, proxies: ["🪜美国跳板", "@US-ISP-SRC"]}
+
 rules:
   # 针对192.168.2x.x的配置，走指定的节点
   - SRC-IP-CIDR,192.168.23.0/24,[自动]-台湾🏝️
   - SRC-IP-CIDR,192.168.24.0/24,[自动]-新加坡🇸🇬
-  - SRC-IP-CIDR,192.168.25.0/24,[自动]-美国🇺🇸
+  - SRC-IP-CIDR,192.168.25.0/24,🇺🇸美国ISP

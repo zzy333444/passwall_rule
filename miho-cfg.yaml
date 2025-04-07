@@ -86,7 +86,7 @@ with_global: &with_global ["🚀 国外流量", "[自动]-新加坡🇸🇬", "[
 proxy-groups:
   # 常用
   - {name: "🚀 国外流量", type: select, proxies: ["[自动]-速度最优⚡️", "✈️ 手动选择", "🇨🇳 直连"]}
-  - {name: "✈️ 手动选择", type: select, include-all: true}
+  - {name: "✈️ 手动选择", type: select, include-all: true, filter: "^(?!.*@)"}
   - {name: "🐟 漏网之鱼", type: select, proxies: ["🚀 国外流量", "🇨🇳 直连"]}
 
   # 单独的应用
@@ -102,11 +102,11 @@ proxy-groups:
   - {name: "[类]-AppleCN🍎", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量"]} 
 
   # 自动测速
-  - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|直连|Emby|土)).*)"}
+  - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|直连|Emby|土|@)).*)"}
   - {name: "[自动]-香港🇭🇰", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(港|HK|Hong))" }
   - {name: "[自动]-日本🇯🇵", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(日|JP|Japan))" }
   - {name: "[自动]-台湾🏝️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(台|TW))" }
-  - {name: "[自动]-美国🇺🇸", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(美|US|States|America))" }
+  - {name: "[自动]-美国🇺🇸", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(美|US|States|America))^(?!.*@)" }
   - {name: "[自动]-新加坡🇸🇬", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(坡|狮城|新加坡|SG))" }
  
 
