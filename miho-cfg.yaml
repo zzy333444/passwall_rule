@@ -97,6 +97,7 @@ proxy-groups:
   - {name: "[单]-YouTube📹", type: select, proxies: *with_global}
   - {name: "[单]-Shopee🛍️", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))"}
   - {name: "[单]-Facebook👥", type: select, proxies: *with_global}
+  - {name: "[单]-LinkedIn👥", type: select, proxies: *with_global}
 
   # 类策略
   - {name: "[类]-海外AI🤖", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))"}
@@ -128,6 +129,7 @@ rules:
   - RULE-SET,telegram_domain,[单]-Telegram📲
   - RULE-SET,netflix_domain,[单]-Netflix🎥
   - RULE-SET,facebook_domain,[单]-Facebook👥
+  - RULE-SET,linkedin_domain,[单]-LinkedIn👥
   - RULE-SET,cn_domain,DIRECT 
   - RULE-SET,china_only,DIRECT
   - RULE-SET,cn_ip,DIRECT
@@ -157,6 +159,8 @@ rule-providers:
   tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   shopee_domain: { <<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/shopee.mrs"}
   facebook_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
+  linkedin_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.mrs"}
+  
 
   # 一类应用
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
