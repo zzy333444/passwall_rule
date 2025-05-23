@@ -1,7 +1,7 @@
 # 机场订阅
 proxy-providers:
   Airport1:
-    url: "xx"
+    url: "https://bigmesub001.azure-api.net/happy/api/v1/client/subscribe?token=daaae2f1441a2f9668ee794d2f43acd3"
     type: http
     interval: 86400
     health-check:
@@ -104,12 +104,12 @@ proxy-groups:
   - {name: "[类]-AppleCN🍎", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量"]} 
 
   # 自动测速
-  - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|1.5|直连|Emby|土|@)).*)"}
-  - {name: "[自动]-香港🇭🇰", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(港|HK|Hong))" }
+  - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|1\\.5|直连|Emby|土|@)).*)"}
+  - {name: "[自动]-香港🇭🇰", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(港|HK|Hong))(?!.*1\\.5)" }
   - {name: "[自动]-日本🇯🇵", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(日|JP|Japan))" }
   - {name: "[自动]-台湾🏝️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(台|TW))" }
   - {name: "[自动]-美国🇺🇸", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "^(?!.*@.*)(?=.*(?:美|US|States|America))" }
-  - {name: "[自动]-新加坡🇸🇬", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(坡|狮城|新加坡|SG))" }
+  - {name: "[自动]-新加坡🇸🇬", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(坡|狮城|新加坡|SG))(?!.*1\\.5)" }
  
 
 # 规则匹配
