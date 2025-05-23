@@ -1,7 +1,7 @@
 # 机场订阅
 proxy-providers:
   Airport1:
-    url: "https://bigmesub001.azure-api.net/happy/api/v1/client/subscribe?token=daaae2f1441a2f9668ee794d2f43acd3"
+    url: "xxx"
     type: http
     interval: 86400
     health-check:
