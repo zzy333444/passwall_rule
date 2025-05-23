@@ -104,7 +104,7 @@ proxy-groups:
   - {name: "[类]-AppleCN🍎", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量"]} 
 
   # 自动测速
-  - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|直连|Emby|土|@)).*)"}
+  - {name: "[自动]-速度最优⚡️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(^(?!.*(US|美|DE|德|专用|1.5|直连|Emby|土|@)).*)"}
   - {name: "[自动]-香港🇭🇰", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(港|HK|Hong))" }
   - {name: "[自动]-日本🇯🇵", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(日|JP|Japan))" }
   - {name: "[自动]-台湾🏝️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(台|TW))" }
