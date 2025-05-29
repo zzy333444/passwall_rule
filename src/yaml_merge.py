@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 def load_yaml(file_path: str) -> Dict[str, Any]:
     """加载YAML文件"""
-    try:
+    try: 
         with open(file_path, 'r', encoding='utf-8') as f:
             return yaml.safe_load(f)
     except Exception as e:
@@ -13,9 +13,12 @@ def load_yaml(file_path: str) -> Dict[str, Any]:
         return None
 
 
-def merge_yaml_configs(wifi_config: Dict[str, Any], base_config: Dict[str, Any]) -> Dict[str, Any]:
+def merge_yaml_configs(
+    other_template: Dict[str, Any], 
+    base_config: Dict[str, Any]
+    ) -> Dict[str, Any]:
     """合并两个YAML配置"""
-    if not wifi_config or not base_config:
+    if not other_template or not base_config:
         return None
 
     def merge_dicts(wifi_dict: Dict[str, Any], base_dict: Dict[str, Any]) -> Dict[str, Any]:
@@ -38,8 +41,7 @@ def merge_yaml_configs(wifi_config: Dict[str, Any], base_config: Dict[str, Any])
                         group.get('name') for group in base_value
                         if isinstance(group, dict) and 'name' in group
                     }
-                    new_groups = [group for group in wifi_value
-                                  if group.get('name') not in existing_names]
+                    new_groups = [group for group in wifi_value if group.get('name') not in existing_names]
                     result[key] = base_value + new_groups
                 elif key == 'proxies':
                     existing_names = {
@@ -56,7 +58,7 @@ def merge_yaml_configs(wifi_config: Dict[str, Any], base_config: Dict[str, Any])
                 result[key] = wifi_value
         return result
 
-    return merge_dicts(wifi_config, base_config)
+    return merge_dicts(other_template, base_config)
 
 
 def minimize_config(config: Dict[str, Any]) -> Dict[str, Any]:
