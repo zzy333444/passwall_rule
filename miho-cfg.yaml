@@ -96,12 +96,12 @@ proxy-groups:
   - {name: "[单]-Netflix🎥", type: select, proxies: *country_pr} 
   - {name: "[单]-Cursor🐶", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量", "[类]-海外AI🤖"]}
   - {name: "[单]-YouTube📹", type: select, proxies: *with_global}
-  - {name: "[单]-Shopee🛍️", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))"}
+  - {name: "[单]-Shopee🛍️", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|SG|KR|韩国|日|JP|Japan|🇻🇳|VN))"}
   - {name: "[单]-Facebook👥", type: select, proxies: *with_global}
   - {name: "[单]-LinkedIn👥", type: select, proxies: *with_global}
 
   # 类策略
-  - {name: "[类]-海外AI🤖", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬))"}
+  - {name: "[类]-海外AI🤖", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|SG|KR|韩国|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬))"}
   - {name: "[类]-AppleCN🍎", type: select, proxies: ["🇨🇳 直连", "🚀 国外流量"]} 
 
   # 自动测速
@@ -110,7 +110,7 @@ proxy-groups:
   - {name: "[自动]-日本🇯🇵", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(日|JP|Japan))" }
   - {name: "[自动]-台湾🏝️", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(台|TW|Taiwan|wan))" }
   - {name: "[自动]-美国🇺🇸", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "^(?!.*@.*)(?=.*(?:美|US|States|America|🇺🇸))" }
-  - {name: "[自动]-新加坡🇸🇬", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(坡|狮城|新加坡|SG|Singapore|🇸🇬))(?!.*(1\\.5|倍率:2|用))" }
+  - {name: "[自动]-新加坡🇸🇬", type: url-test, include-all: true, tolerance: 23, interval: 200, filter: "(?=(坡|狮城|SG|Singapore|🇸🇬))(?!.*(1\\.5|倍率:2|用))" }
  
 
 # 规则匹配
