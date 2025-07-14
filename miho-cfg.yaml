@@ -98,7 +98,7 @@ proxy-groups:
   - {name: "[单]-YouTube📹", type: select, proxies: *with_global}
   - {name: "[单]-Shopee🛍️", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|SG|KR|韩国|日|JP|Japan|🇻🇳|VN))"}
   - {name: "[单]-Facebook👥", type: select, proxies: *with_global}
-  - {name: "[单]-LinkedIn👥", type: select, proxies: *with_global}
+  - {name: "[单]-LinkedIn👥", type: select, proxies: *with_global, include-all: true, filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美))"}
 
   # 类策略
   - {name: "[类]-海外AI🤖", type: select, proxies: *asia_pr, include-all: true, filter: "(?=(台|TW|坡|狮城|SG|KR|韩国|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬))"}
