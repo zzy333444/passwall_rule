@@ -98,6 +98,8 @@ with_global:
         "🇨🇳 直连",
     ]
 
+with_normal: &with_normal ["🚀 国外流量", "🇨🇳 直连"]
+
 # 出站策略
 proxy-groups:
     # 常用
@@ -119,6 +121,12 @@ proxy-groups:
     - { name: "[单]-Telegram📲", type: select, proxies: *with_global }
     - { name: "[单]-Netflix🎥", type: select, proxies: *country_pr }
     - {
+          name: "[单]-WhatsApp💬",
+          type: select,
+          proxies: *with_normal,
+          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美))",
+      }
+    - {
           name: "[单]-Cursor🐶",
           type: select,
           proxies: ["🇨🇳 直连", "🚀 国外流量", "[类]-海外AI🤖"],
@@ -135,7 +143,7 @@ proxy-groups:
     - {
           name: "[单]-LinkedIn👥",
           type: select,
-          proxies: *with_global,
+          proxies: *with_normal,
           include-all: true,
           filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美))",
       }
@@ -215,6 +223,7 @@ rules:
 
     # 规则集
     - RULE-SET,private_domain,DIRECT
+    - RULE-SET,whatsapp_domain,[单]-WhatsApp💬
     - RULE-SET,shopee_domain,[单]-Shopee🛍️
     - RULE-SET,cursor_domain,[单]-Cursor🐶
     - RULE-SET,youtube_domain,[单]-YouTube📹
@@ -290,6 +299,11 @@ rule-providers:
         {
             <<: *domain,
             url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs",
+        }
+    whatsapp_domain:
+        {
+            <<: *domain,
+            url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/whatsapp.mrs",
         }
     linkedin_domain:
         {
