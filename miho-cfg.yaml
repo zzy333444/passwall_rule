@@ -124,6 +124,7 @@ proxy-groups:
           name: "[单]-WhatsApp💬",
           type: select,
           proxies: *with_normal,
+          include-all: true,
           filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美))",
       }
     - {
