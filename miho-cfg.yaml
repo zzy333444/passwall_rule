@@ -125,7 +125,7 @@ proxy-groups:
           type: select,
           proxies: *with_normal,
           include-all: true,
-          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK))",
+          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK|香港))",
       }
     - {
           name: "[单]-Cursor🐶",
@@ -140,13 +140,19 @@ proxy-groups:
           include-all: true,
           filter: "(?=(台|TW|坡|狮城|SG|KR|韩国|日|JP|Japan|🇻🇳|VN))",
       }
-    - { name: "[单]-Facebook👥", type: select, proxies: *with_global }
+    - {
+          name: "[单]-Facebook👥",
+          type: select,
+          proxies: *with_normal,
+          include-all: true,
+          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK|香港))",
+      }
     - {
           name: "[单]-LinkedIn👥",
           type: select,
           proxies: *with_normal,
           include-all: true,
-          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK))",
+          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK|香港))",
       }
 
     # 类策略
