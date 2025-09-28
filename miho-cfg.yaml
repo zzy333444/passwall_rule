@@ -125,7 +125,7 @@ proxy-groups:
           type: select,
           proxies: *with_normal,
           include-all: true,
-          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美))",
+          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK))",
       }
     - {
           name: "[单]-Cursor🐶",
@@ -146,7 +146,7 @@ proxy-groups:
           type: select,
           proxies: *with_normal,
           include-all: true,
-          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美))",
+          filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK))",
       }
 
     # 类策略
