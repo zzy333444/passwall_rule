@@ -39,13 +39,13 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 28.0.0.1/8
   fake-ip-filter-mode: blacklist
-  fake-ip-filter: ['rule-set:private_domain,cn_domain', +.services.googleapis.cn, +.xn--ngstr-lra8j.com, time.*.com, +.pool.ntp.org, +.ntp.tencent.com, +.ntp1.aliyun.com, +.ntp.ntsc.ac.cn, +.cn.ntp.org.cn]
+  fake-ip-filter: ['rule-set:private_domain,cn_domain,china_only', +.services.googleapis.cn, +.xn--ngstr-lra8j.com, time.*.com, +.pool.ntp.org, +.ntp.tencent.com, +.ntp1.aliyun.com, +.ntp.ntsc.ac.cn, +.cn.ntp.org.cn]
   default-nameserver: [223.5.5.5]
   proxy-server-nameserver: ['https://dns.alidns.com/dns-query']
   nameserver: [223.5.5.5, 119.29.29.29]
 country_pr: ['[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', ✈️ 手动选择]
 asia_pr: ['[自动]-台湾🏝️', '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵']
-with_global: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', ✈️ 手动选择, 🇨🇳 直连]
+with_global: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', '[自动]-香港🇭🇰', ✈️ 手动选择, 🇨🇳 直连]
 proxy-groups:
 - name: 🚀 国外流量
   type: select
@@ -59,7 +59,7 @@ proxy-groups:
   proxies: ['[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', ✈️ 手动选择]
 - name: '[单]-Telegram📲'
   type: select
-  proxies: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', ✈️ 手动选择, 🇨🇳 直连]
+  proxies: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', '[自动]-香港🇭🇰', ✈️ 手动选择, 🇨🇳 直连]
 - name: '[单]-Netflix🎥'
   type: select
   proxies: ['[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', ✈️ 手动选择]
@@ -68,26 +68,34 @@ proxy-groups:
   proxies: [🇨🇳 直连, 🚀 国外流量, '[类]-海外AI🤖']
 - name: '[单]-YouTube📹'
   type: select
-  proxies: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', ✈️ 手动选择, 🇨🇳 直连]
+  proxies: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', '[自动]-香港🇭🇰', ✈️ 手动选择, 🇨🇳 直连]
 - name: '[单]-Shopee🛍️'
   type: select
   proxies: ['[自动]-台湾🏝️', '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵']
   include-all: true
-  filter: (?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))
+  filter: (?=(台|TW|坡|狮城|SG|KR|韩国|日|JP|Japan|🇻🇳|VN))
+- name: '[单]-Facebook👥'
+  type: select
+  proxies: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', '[自动]-香港🇭🇰', ✈️ 手动选择, 🇨🇳 直连]
+- name: '[单]-LinkedIn👥'
+  type: select
+  proxies: [🚀 国外流量, '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-台湾🏝️', '[自动]-美国🇺🇸', '[自动]-香港🇭🇰', ✈️ 手动选择, 🇨🇳 直连]
+  include-all: true
+  filter: (?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美))
 - name: '[类]-海外AI🤖'
   type: select
   proxies: ['[自动]-台湾🏝️', '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵']
   include-all: true
-  filter: (?=(台|TW|坡|狮城|新加坡|SG|KR|韩国|日|JP|Japan))
+  filter: (?=(台|TW|坡|狮城|SG|KR|韩国|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬))
 - name: '[类]-AppleCN🍎'
   type: select
   proxies: [🇨🇳 直连, 🚀 国外流量]
-- {name: '[自动]-速度最优⚡️', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(^(?!.*(US|美|DE|德|专用|直连|Emby|土|@)).*)'}
-- {name: '[自动]-香港🇭🇰', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(港|HK|Hong))'}
+- {name: '[自动]-速度最优⚡️', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(^(?!.*(US|荷|沙特|美|英|DE|澳|巴西|加拿大|泰|马来|德|专用|1\.5|倍率:2|直连|Emby|土|@)).*)'}
+- {name: '[自动]-香港🇭🇰', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(港|HK|Hong|🇭🇰))(?!.*(1\.5|倍率:2))'}
 - {name: '[自动]-日本🇯🇵', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(日|JP|Japan))'}
-- {name: '[自动]-台湾🏝️', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(台|TW))'}
-- {name: '[自动]-美国🇺🇸', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '^(?!.*@.*)(?=.*(?:美|US|States|America))'}
-- {name: '[自动]-新加坡🇸🇬', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(坡|狮城|新加坡|SG))'}
+- {name: '[自动]-台湾🏝️', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(台|TW|Taiwan|wan))'}
+- {name: '[自动]-美国🇺🇸', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '^(?!.*@.*)(?=.*(?:美|US|States|America|🇺🇸))'}
+- {name: '[自动]-新加坡🇸🇬', type: url-test, include-all: true, tolerance: 23, interval: 200, filter: '(?=(坡|狮城|SG|Singapore|🇸🇬))(?!.*(1\.5|倍率:2|用))'}
 - name: 🪜美国跳板
   type: select
   proxies: ['[自动]-台湾🏝️', '[自动]-新加坡🇸🇬', '[自动]-日本🇯🇵', '[自动]-美国🇺🇸']
@@ -96,22 +104,23 @@ proxy-groups:
 - name: 🇺🇸美国ISP
   type: relay
   proxies: [🪜美国跳板, '@US-ISP-SRC']
-rules: ['SRC-IP-CIDR,192.168.23.0/24,[自动]-台湾🏝️', 'SRC-IP-CIDR,192.168.24.0/24,[自动]-新加坡🇸🇬', 'SRC-IP-CIDR,192.168.25.0/24,🇺🇸美国ISP', 'IP-CIDR,192.168.0.0/16,DIRECT', 'IP-CIDR,10.0.0.0/8,DIRECT', 'IP-CIDR,172.16.0.0/12,DIRECT', 'IP-CIDR,127.0.0.0/8,DIRECT', 'RULE-SET,private_domain,DIRECT', 'RULE-SET,shopee_domain,[单]-Shopee🛍️', 'RULE-SET,cursor_domain,[单]-Cursor🐶', 'RULE-SET,youtube_domain,[单]-YouTube📹', 'RULE-SET,tiktok_domain,[单]-TikTok🎵', 'RULE-SET,telegram_domain,[单]-Telegram📲', 'RULE-SET,netflix_domain,[单]-Netflix🎥', 'RULE-SET,cn_domain,DIRECT', 'RULE-SET,china_only,DIRECT', 'RULE-SET,cn_ip,DIRECT', 'RULE-SET,ai,[类]-海外AI🤖', 'RULE-SET,apple_domain,[类]-AppleCN🍎', 'RULE-SET,proxylite,🚀 国外流量', 'RULE-SET,gfw_domain,🚀 国外流量', 'RULE-SET,geolocation-!cn,🚀 国外流量', 'RULE-SET,netflix_ip,[单]-Netflix🎥,no-resolve', 'RULE-SET,telegram_ip,[单]-Telegram📲,no-resolve', 'MATCH,🐟 漏网之鱼']
+rules: ['SRC-IP-CIDR,192.168.23.0/24,[自动]-台湾🏝️', 'SRC-IP-CIDR,192.168.24.0/24,[自动]-新加坡🇸🇬', 'SRC-IP-CIDR,192.168.25.0/24,🇺🇸美国ISP', 'IP-CIDR,192.168.0.0/16,DIRECT', 'IP-CIDR,10.0.0.0/8,DIRECT', 'IP-CIDR,172.16.0.0/12,DIRECT', 'IP-CIDR,127.0.0.0/8,DIRECT', 'RULE-SET,private_domain,DIRECT', 'RULE-SET,shopee_domain,[单]-Shopee🛍️', 'RULE-SET,cursor_domain,[单]-Cursor🐶', 'RULE-SET,youtube_domain,[单]-YouTube📹', 'RULE-SET,tiktok_domain,[单]-TikTok🎵', 'RULE-SET,telegram_domain,[单]-Telegram📲', 'RULE-SET,netflix_domain,[单]-Netflix🎥', 'RULE-SET,facebook_domain,[单]-Facebook👥', 'RULE-SET,linkedin_domain,[单]-LinkedIn👥', 'RULE-SET,cn_domain,DIRECT', 'RULE-SET,china_only,DIRECT', 'RULE-SET,cn_ip,DIRECT', 'RULE-SET,ai,[类]-海外AI🤖', 'RULE-SET,apple_domain,[类]-AppleCN🍎', 'RULE-SET,proxylite,🚀 国外流量', 'RULE-SET,gfw_domain,🚀 国外流量', 'RULE-SET,geolocation-!cn,🚀 国外流量', 'RULE-SET,netflix_ip,[单]-Netflix🎥,no-resolve', 'RULE-SET,telegram_ip,[单]-Telegram📲,no-resolve', 'MATCH,🐟 漏网之鱼']
 rule-anchor:
   ip: {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: {type: http, interval: 86400, behavior: domain, format: mrs}
   class: {type: http, interval: 86400, behavior: classical, format: text}
-  
 rule-providers:
-  cursor_domain: {type: http, interval: 86400, behavior: classical, format: text, url: 'https://raw.githubusercontent.com/zzy333444/passwall_rule/main/list/cursor.list'}
+  cursor_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cursor.mrs'}
   youtube_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs'}
   telegram_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs'}
   netflix_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs'}
   apple_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs'}
   tiktok_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs'}
   shopee_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/shopee.mrs'}
+  facebook_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs'}
+  linkedin_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/linkedin.mrs'}
   private_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs'}
-  proxylite: {type: http, interval: 86400, behavior: classical, format: text, url: 'https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/master/ProxyLite.list'}
+  proxylite: {type: http, interval: 86400, behavior: classical, format: text, url: 'https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list'}
   china_only: {type: http, interval: 86400, behavior: classical, format: text, url: 'https://raw.githubusercontent.com/zzy333444/passwall_rule/main/list/china_only.list'}
   ai: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs'}
   gfw_domain: {type: http, interval: 86400, behavior: domain, format: mrs, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs'}
