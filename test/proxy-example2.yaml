@@ -1,0 +1,326 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9090'
+dns:
+    enable: false
+    ipv6: true
+    default-nameserver: [223.5.5.5, 119.29.29.29, 8.8.8.8]
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.18.0.1/16
+    use-hosts: true
+    nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+    fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+proxies:
+    - { name: '[trojan] 最新网址：web01.xxx.org', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56301, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 剩余流量：28.47 GB', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56301, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 距离下次重置剩余：9 天', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56301, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 套餐到期：2026-05-26', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56301, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56301, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56302, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56303, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 04', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56304, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 05', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56305, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 06', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56306, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 07', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56307, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 08', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56308, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 09', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56309, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 10', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56310, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 11', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56311, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 12', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56312, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 13', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56313, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 14', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56314, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 15', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56315, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 16', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56316, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 17', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56317, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 18', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56318, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 19', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56319, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 香港 20', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56320, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56321, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56322, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56323, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 04', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56324, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 05', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56325, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 06', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56326, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 07', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56327, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 08', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56328, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 09', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56329, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 台湾 10', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56330, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56331, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56332, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56333, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 04', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56334, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 05', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56335, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 06', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56336, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 07', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56337, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 08', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56338, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 09', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56339, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 新加坡 10', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56340, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56341, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56342, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56343, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 04', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56344, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 05', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56345, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 06', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56346, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 07', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56347, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 08', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56348, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 09', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56349, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 日本 10', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56350, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56351, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56352, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56353, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 04', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56354, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 05', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56355, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 06', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56356, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 07', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56357, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 08', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56358, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 09', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56359, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 美国 10', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56360, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 韩国01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56361, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 韩国02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56362, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 韩国03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56363, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 马来西亚 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56366, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 马来西亚 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56367, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 马来西亚 03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56368, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 马来西亚 04', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56369, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 马来西亚 05', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56370, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 英国 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56371, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 英国 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56372, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 英国 03', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56373, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 英国 04', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56374, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 英国 05', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56375, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 泰国 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56376, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 泰国 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56377, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 越南 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56378, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 越南 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56379, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 菲律宾 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56380, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 菲律宾 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56381, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 印度 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56382, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 土耳其 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56384, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 土耳其 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56385, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 阿根廷 01', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56388, password: rrr, udp: true, skip-cert-verify: true }
+    - { name: '[trojan] 阿根廷 02', type: trojan, server: s19fvirxvk2nyss.ddd.cc, port: 56389, password: rrr, udp: true, skip-cert-verify: true }
+proxy-groups:
+    - { name: 111兔子 web01.xxx.org, type: select, proxies: [自动选择, 故障转移, '[trojan] 最新网址：web01.xxx.org', '[trojan] 剩余流量：28.47 GB', '[trojan] 距离下次重置剩余：9 天', '[trojan] 套餐到期：2026-05-26', '[trojan] 香港 01', '[trojan] 香港 02', '[trojan] 香港 03', '[trojan] 香港 04', '[trojan] 香港 05', '[trojan] 香港 06', '[trojan] 香港 07', '[trojan] 香港 08', '[trojan] 香港 09', '[trojan] 香港 10', '[trojan] 香港 11', '[trojan] 香港 12', '[trojan] 香港 13', '[trojan] 香港 14', '[trojan] 香港 15', '[trojan] 香港 16', '[trojan] 香港 17', '[trojan] 香港 18', '[trojan] 香港 19', '[trojan] 香港 20', '[trojan] 台湾 01', '[trojan] 台湾 02', '[trojan] 台湾 03', '[trojan] 台湾 04', '[trojan] 台湾 05', '[trojan] 台湾 06', '[trojan] 台湾 07', '[trojan] 台湾 08', '[trojan] 台湾 09', '[trojan] 台湾 10', '[trojan] 新加坡 01', '[trojan] 新加坡 02', '[trojan] 新加坡 03', '[trojan] 新加坡 04', '[trojan] 新加坡 05', '[trojan] 新加坡 06', '[trojan] 新加坡 07', '[trojan] 新加坡 08', '[trojan] 新加坡 09', '[trojan] 新加坡 10', '[trojan] 日本 01', '[trojan] 日本 02', '[trojan] 日本 03', '[trojan] 日本 04', '[trojan] 日本 05', '[trojan] 日本 06', '[trojan] 日本 07', '[trojan] 日本 08', '[trojan] 日本 09', '[trojan] 日本 10', '[trojan] 美国 01', '[trojan] 美国 02', '[trojan] 美国 03', '[trojan] 美国 04', '[trojan] 美国 05', '[trojan] 美国 06', '[trojan] 美国 07', '[trojan] 美国 08', '[trojan] 美国 09', '[trojan] 美国 10', '[trojan] 韩国01', '[trojan] 韩国02', '[trojan] 韩国03', '[trojan] 马来西亚 01', '[trojan] 马来西亚 02', '[trojan] 马来西亚 03', '[trojan] 马来西亚 04', '[trojan] 马来西亚 05', '[trojan] 英国 01', '[trojan] 英国 02', '[trojan] 英国 03', '[trojan] 英国 04', '[trojan] 英国 05', '[trojan] 泰国 01', '[trojan] 泰国 02', '[trojan] 越南 01', '[trojan] 越南 02', '[trojan] 菲律宾 01', '[trojan] 菲律宾 02', '[trojan] 印度 01', '[trojan] 土耳其 01', '[trojan] 土耳其 02', '[trojan] 阿根廷 01', '[trojan] 阿根廷 02'] }
+    - { name: 自动选择, type: url-test, proxies: ['[trojan] 最新网址：web01.xxx.org', '[trojan] 剩余流量：28.47 GB', '[trojan] 距离下次重置剩余：9 天', '[trojan] 套餐到期：2026-05-26', '[trojan] 香港 01', '[trojan] 香港 02', '[trojan] 香港 03', '[trojan] 香港 04', '[trojan] 香港 05', '[trojan] 香港 06', '[trojan] 香港 07', '[trojan] 香港 08', '[trojan] 香港 09', '[trojan] 香港 10', '[trojan] 香港 11', '[trojan] 香港 12', '[trojan] 香港 13', '[trojan] 香港 14', '[trojan] 香港 15', '[trojan] 香港 16', '[trojan] 香港 17', '[trojan] 香港 18', '[trojan] 香港 19', '[trojan] 香港 20', '[trojan] 台湾 01', '[trojan] 台湾 02', '[trojan] 台湾 03', '[trojan] 台湾 04', '[trojan] 台湾 05', '[trojan] 台湾 06', '[trojan] 台湾 07', '[trojan] 台湾 08', '[trojan] 台湾 09', '[trojan] 台湾 10', '[trojan] 新加坡 01', '[trojan] 新加坡 02', '[trojan] 新加坡 03', '[trojan] 新加坡 04', '[trojan] 新加坡 05', '[trojan] 新加坡 06', '[trojan] 新加坡 07', '[trojan] 新加坡 08', '[trojan] 新加坡 09', '[trojan] 新加坡 10', '[trojan] 日本 01', '[trojan] 日本 02', '[trojan] 日本 03', '[trojan] 日本 04', '[trojan] 日本 05', '[trojan] 日本 06', '[trojan] 日本 07', '[trojan] 日本 08', '[trojan] 日本 09', '[trojan] 日本 10', '[trojan] 美国 01', '[trojan] 美国 02', '[trojan] 美国 03', '[trojan] 美国 04', '[trojan] 美国 05', '[trojan] 美国 06', '[trojan] 美国 07', '[trojan] 美国 08', '[trojan] 美国 09', '[trojan] 美国 10', '[trojan] 韩国01', '[trojan] 韩国02', '[trojan] 韩国03', '[trojan] 马来西亚 01', '[trojan] 马来西亚 02', '[trojan] 马来西亚 03', '[trojan] 马来西亚 04', '[trojan] 马来西亚 05', '[trojan] 英国 01', '[trojan] 英国 02', '[trojan] 英国 03', '[trojan] 英国 04', '[trojan] 英国 05', '[trojan] 泰国 01', '[trojan] 泰国 02', '[trojan] 越南 01', '[trojan] 越南 02', '[trojan] 菲律宾 01', '[trojan] 菲律宾 02', '[trojan] 印度 01', '[trojan] 土耳其 01', '[trojan] 土耳其 02', '[trojan] 阿根廷 01', '[trojan] 阿根廷 02'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
+    - { name: 故障转移, type: fallback, proxies: ['[trojan] 最新网址：web01.xxx.org', '[trojan] 剩余流量：28.47 GB', '[trojan] 距离下次重置剩余：9 天', '[trojan] 套餐到期：2026-05-26', '[trojan] 香港 01', '[trojan] 香港 02', '[trojan] 香港 03', '[trojan] 香港 04', '[trojan] 香港 05', '[trojan] 香港 06', '[trojan] 香港 07', '[trojan] 香港 08', '[trojan] 香港 09', '[trojan] 香港 10', '[trojan] 香港 11', '[trojan] 香港 12', '[trojan] 香港 13', '[trojan] 香港 14', '[trojan] 香港 15', '[trojan] 香港 16', '[trojan] 香港 17', '[trojan] 香港 18', '[trojan] 香港 19', '[trojan] 香港 20', '[trojan] 台湾 01', '[trojan] 台湾 02', '[trojan] 台湾 03', '[trojan] 台湾 04', '[trojan] 台湾 05', '[trojan] 台湾 06', '[trojan] 台湾 07', '[trojan] 台湾 08', '[trojan] 台湾 09', '[trojan] 台湾 10', '[trojan] 新加坡 01', '[trojan] 新加坡 02', '[trojan] 新加坡 03', '[trojan] 新加坡 04', '[trojan] 新加坡 05', '[trojan] 新加坡 06', '[trojan] 新加坡 07', '[trojan] 新加坡 08', '[trojan] 新加坡 09', '[trojan] 新加坡 10', '[trojan] 日本 01', '[trojan] 日本 02', '[trojan] 日本 03', '[trojan] 日本 04', '[trojan] 日本 05', '[trojan] 日本 06', '[trojan] 日本 07', '[trojan] 日本 08', '[trojan] 日本 09', '[trojan] 日本 10', '[trojan] 美国 01', '[trojan] 美国 02', '[trojan] 美国 03', '[trojan] 美国 04', '[trojan] 美国 05', '[trojan] 美国 06', '[trojan] 美国 07', '[trojan] 美国 08', '[trojan] 美国 09', '[trojan] 美国 10', '[trojan] 韩国01', '[trojan] 韩国02', '[trojan] 韩国03', '[trojan] 马来西亚 01', '[trojan] 马来西亚 02', '[trojan] 马来西亚 03', '[trojan] 马来西亚 04', '[trojan] 马来西亚 05', '[trojan] 英国 01', '[trojan] 英国 02', '[trojan] 英国 03', '[trojan] 英国 04', '[trojan] 英国 05', '[trojan] 泰国 01', '[trojan] 泰国 02', '[trojan] 越南 01', '[trojan] 越南 02', '[trojan] 菲律宾 01', '[trojan] 菲律宾 02', '[trojan] 印度 01', '[trojan] 土耳其 01', '[trojan] 土耳其 02', '[trojan] 阿根廷 01', '[trojan] 阿根廷 02'], url: 'http://www.gstatic.com/generate_204', interval: 7200 }
+rules:
+    - 'DOMAIN,1ytdy.1ytcf.com,DIRECT'
+    - 'DOMAIN-SUFFIX,services.googleapis.cn,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,xn--ngstr-lra8j.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,safebrowsing.urlsec.qq.com,DIRECT'
+    - 'DOMAIN,safebrowsing.googleapis.com,DIRECT'
+    - 'DOMAIN,developer.apple.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,digicert.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,ocsp.apple.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,ocsp.comodoca.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,ocsp.usertrust.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,ocsp.sectigo.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,ocsp.verisign.net,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,apple-dns.net,111兔子 web01.xxx.org'
+    - 'DOMAIN,testflight.apple.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,sandbox.itunes.apple.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,itunes.apple.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,apps.apple.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,blobstore.apple.com,111兔子 web01.xxx.org'
+    - 'DOMAIN,cvws.icloud-content.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,itunes.apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,icloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,icloud-content.com,DIRECT'
+    - 'DOMAIN-SUFFIX,me.com,DIRECT'
+    - 'DOMAIN-SUFFIX,aaplimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cdn20.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cdn-apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,akadns.net,DIRECT'
+    - 'DOMAIN-SUFFIX,akamaiedge.net,DIRECT'
+    - 'DOMAIN-SUFFIX,edgekey.net,DIRECT'
+    - 'DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,mwcname.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple-mapkit.com,DIRECT'
+    - 'DOMAIN-SUFFIX,126.com,DIRECT'
+    - 'DOMAIN-SUFFIX,126.net,DIRECT'
+    - 'DOMAIN-SUFFIX,127.net,DIRECT'
+    - 'DOMAIN-SUFFIX,163.com,DIRECT'
+    - 'DOMAIN-SUFFIX,360buyimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,36kr.com,DIRECT'
+    - 'DOMAIN-SUFFIX,acfun.tv,DIRECT'
+    - 'DOMAIN-SUFFIX,air-matters.com,DIRECT'
+    - 'DOMAIN-SUFFIX,aixifan.com,DIRECT'
+    - 'DOMAIN-KEYWORD,alicdn,DIRECT'
+    - 'DOMAIN-KEYWORD,alipay,DIRECT'
+    - 'DOMAIN-KEYWORD,taobao,DIRECT'
+    - 'DOMAIN-SUFFIX,amap.com,DIRECT'
+    - 'DOMAIN-SUFFIX,autonavi.com,DIRECT'
+    - 'DOMAIN-KEYWORD,baidu,DIRECT'
+    - 'DOMAIN-SUFFIX,bdimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bdstatic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bilibili.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bilivideo.com,DIRECT'
+    - 'DOMAIN-SUFFIX,caiyunapp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,clouddn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cnbeta.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cnbetacdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cootekservice.com,DIRECT'
+    - 'DOMAIN-SUFFIX,csdn.net,DIRECT'
+    - 'DOMAIN-SUFFIX,ctrip.com,DIRECT'
+    - 'DOMAIN-SUFFIX,dgtle.com,DIRECT'
+    - 'DOMAIN-SUFFIX,dianping.com,DIRECT'
+    - 'DOMAIN-SUFFIX,douban.com,DIRECT'
+    - 'DOMAIN-SUFFIX,doubanio.com,DIRECT'
+    - 'DOMAIN-SUFFIX,duokan.com,DIRECT'
+    - 'DOMAIN-SUFFIX,easou.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ele.me,DIRECT'
+    - 'DOMAIN-SUFFIX,feng.com,DIRECT'
+    - 'DOMAIN-SUFFIX,fir.im,DIRECT'
+    - 'DOMAIN-SUFFIX,frdic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,g-cores.com,DIRECT'
+    - 'DOMAIN-SUFFIX,godic.net,DIRECT'
+    - 'DOMAIN-SUFFIX,gtimg.com,DIRECT'
+    - 'DOMAIN,cdn.hockeyapp.net,DIRECT'
+    - 'DOMAIN-SUFFIX,hongxiu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,hxcdn.net,DIRECT'
+    - 'DOMAIN-SUFFIX,iciba.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ifeng.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ifengimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ipip.net,DIRECT'
+    - 'DOMAIN-SUFFIX,iqiyi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,jd.com,DIRECT'
+    - 'DOMAIN-SUFFIX,jianshu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,knewone.com,DIRECT'
+    - 'DOMAIN-SUFFIX,le.com,DIRECT'
+    - 'DOMAIN-SUFFIX,lecloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,lemicp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,licdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,luoo.net,DIRECT'
+    - 'DOMAIN-SUFFIX,meituan.com,DIRECT'
+    - 'DOMAIN-SUFFIX,meituan.net,DIRECT'
+    - 'DOMAIN-SUFFIX,mi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miaopai.com,DIRECT'
+    - 'DOMAIN-SUFFIX,microsoft.com,DIRECT'
+    - 'DOMAIN-SUFFIX,microsoftonline.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miui.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miwifi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,mob.com,DIRECT'
+    - 'DOMAIN-SUFFIX,netease.com,DIRECT'
+    - 'DOMAIN-SUFFIX,office.com,DIRECT'
+    - 'DOMAIN-SUFFIX,office365.com,DIRECT'
+    - 'DOMAIN-KEYWORD,officecdn,DIRECT'
+    - 'DOMAIN-SUFFIX,oschina.net,DIRECT'
+    - 'DOMAIN-SUFFIX,ppsimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,pstatp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qcloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qdaily.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qdmm.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qhimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qhres.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qidian.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qihucdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qiniu.com,DIRECT' 
+    - 'DOMAIN-SUFFIX,yinxiang.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ykimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,youdao.com,DIRECT'
+    - 'DOMAIN-SUFFIX,youku.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zealer.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zhihu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zhimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zimuzu.tv,DIRECT'
+    - 'DOMAIN-SUFFIX,zoho.com,DIRECT'
+    - 'DOMAIN-KEYWORD,amazon,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,google,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,gmail,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,youtube,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,facebook,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,fb.me,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,fbcdn.net,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,twitter,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,instagram,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,dropbox,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,twimg.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,blogspot,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,youtu.be,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,whatsapp,111兔子 web01.xxx.org'
+    - 'DOMAIN-KEYWORD,admarvel,REJECT'
+    - 'DOMAIN-KEYWORD,admaster,REJECT'
+    - 'DOMAIN-KEYWORD,adsage,REJECT'
+    - 'DOMAIN-KEYWORD,adsmogo,REJECT'
+    - 'DOMAIN-KEYWORD,adsrvmedia,REJECT'
+    - 'DOMAIN-KEYWORD,adwords,REJECT'
+    - 'DOMAIN-KEYWORD,adservice,REJECT'
+    - 'DOMAIN-SUFFIX,appsflyer.com,REJECT'
+    - 'DOMAIN-KEYWORD,domob,REJECT'
+    - 'DOMAIN-SUFFIX,doubleclick.net,REJECT'
+    - 'DOMAIN-KEYWORD,duomeng,REJECT'
+    - 'DOMAIN-KEYWORD,dwtrack,REJECT'
+    - 'DOMAIN-KEYWORD,guanggao,REJECT'
+    - 'DOMAIN-KEYWORD,lianmeng,REJECT'
+    - 'DOMAIN-SUFFIX,mmstat.com,REJECT'
+    - 'DOMAIN-KEYWORD,mopub,REJECT'
+    - 'DOMAIN-KEYWORD,omgmta,REJECT'
+    - 'DOMAIN-KEYWORD,openx,REJECT'
+    - 'DOMAIN-KEYWORD,partnerad,REJECT'
+    - 'DOMAIN-KEYWORD,pingfore,REJECT'
+    - 'DOMAIN-KEYWORD,supersonicads,REJECT'
+    - 'DOMAIN-KEYWORD,uedas,REJECT'
+    - 'DOMAIN-KEYWORD,umeng,REJECT'
+    - 'DOMAIN-KEYWORD,usage,REJECT'
+    - 'DOMAIN-SUFFIX,vungle.com,REJECT'
+    - 'DOMAIN-KEYWORD,wlmonitor,REJECT'
+    - 'DOMAIN-KEYWORD,zjtoolbar,REJECT'
+    - 'DOMAIN-SUFFIX,9to5mac.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,abpchina.org,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,adblockplus.org,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,adobe.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,akamaized.net,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,alfredapp.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,amplitude.com,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,ampproject.org,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,android.com,111兔子 web01.xxx.org' 
+    - 'DOMAIN-SUFFIX,telegra.ph,111兔子 web01.xxx.org'
+    - 'DOMAIN-SUFFIX,telegram.org,111兔子 web01.xxx.org'
+    - 'IP-CIDR,91.108.4.0/22,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,91.108.8.0/21,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,91.108.16.0/22,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,91.108.56.0/22,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,149.154.160.0/20,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR6,2001:67c:4e8::/48,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR6,2001:b28:f23d::/48,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR6,2001:b28:f23f::/48,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,120.232.181.162/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,120.241.147.226/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,120.253.253.226/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,120.253.255.162/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,120.253.255.34/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,120.253.255.98/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,180.163.150.162/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,180.163.150.34/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,180.163.151.162/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,180.163.151.34/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,203.208.39.0/24,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,203.208.40.0/24,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,203.208.41.0/24,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,203.208.43.0/24,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,203.208.50.0/24,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,220.181.174.162/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,220.181.174.226/32,111兔子 web01.xxx.org,no-resolve'
+    - 'IP-CIDR,220.181.174.34/32,111兔子 web01.xxx.org,no-resolve'
+    - 'DOMAIN,injections.adguard.org,DIRECT'
+    - 'DOMAIN,local.adguard.org,DIRECT'
+    - 'DOMAIN-SUFFIX,local,DIRECT'
+    - 'IP-CIDR,127.0.0.0/8,DIRECT'
+    - 'IP-CIDR,172.16.0.0/12,DIRECT'
+    - 'IP-CIDR,192.168.0.0/16,DIRECT'
+    - 'IP-CIDR,10.0.0.0/8,DIRECT'
+    - 'IP-CIDR,17.0.0.0/8,DIRECT'
+    - 'IP-CIDR,100.64.0.0/10,DIRECT'
+    - 'IP-CIDR,224.0.0.0/4,DIRECT'
+    - 'IP-CIDR6,fe80::/10,DIRECT'
+    - 'DOMAIN-SUFFIX,cn,DIRECT'
+    - 'DOMAIN-KEYWORD,-cn,DIRECT'
+    - 'GEOIP,CN,DIRECT'
+    - 'MATCH,111兔子 web01.xxx.org'
