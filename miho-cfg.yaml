@@ -1,3 +1,15 @@
+# 机场订阅
+proxy-providers:
+    Airport1:
+        url: "xxx"
+        type: http
+        interval: 86400
+        health-check:
+            enable: true
+            url: https://www.gstatic.com/generate_204
+            interval: 200
+        proxy: 🇨🇳 直连
+    
 
 # 节点信息
 proxies:
@@ -64,7 +76,7 @@ dns:
         - 223.5.5.5
         - 119.29.29.29
 
-# 国家列表
+# 常规的、常用的 国家/地区列表
 country_pr:
     &country_pr [
         "[自动]-新加坡🇸🇬",
@@ -73,21 +85,27 @@ country_pr:
         "[自动]-美国🇺🇸",
         "✈️ 手动选择",
     ]
-# 亚洲国家列表（由于地理位置，一般会更快）
+
+# 亚洲国家/地区列表（由于地理位置，一般会更快）
 asia_pr: &asia_pr ["[自动]-台湾🏝️", "[自动]-新加坡🇸🇬", "[自动]-日本🇯🇵"]
-with_global:
-    &with_global [
+
+# 最精简的
+simplest_pr: &simplest_pr ["🚀 国外流量", "🇨🇳 直连"]
+
+all_pr:
+    &all_pr [
         "🚀 国外流量",
         "[自动]-新加坡🇸🇬",
         "[自动]-日本🇯🇵",
         "[自动]-台湾🏝️",
         "[自动]-美国🇺🇸",
         "[自动]-香港🇭🇰",
+        "[自动]-澳洲🇦🇺",
         "✈️ 手动选择",
         "🇨🇳 直连",
     ]
 
-with_normal: &with_normal ["🚀 国外流量", "🇨🇳 直连"]
+
 
 # 出站策略
 proxy-groups:
@@ -95,7 +113,7 @@ proxy-groups:
     - {
           name: "🚀 国外流量",
           type: select,
-          proxies: ["[自动]-速度最优⚡️", "✈️ 手动选择", "🇨🇳 直连"],
+          proxies: ["[自动]-速度最优⚡️","[自动]-香港🇭🇰","[自动]-日本🇯🇵", "[自动]-新加坡🇸🇬","[自动]-美国🇺🇸","[自动]-台湾🏝️", "[自动]-澳洲🇦🇺", "✈️ 手动选择", "🇨🇳 直连"],
       }
     - {
           name: "✈️ 手动选择",
@@ -107,12 +125,12 @@ proxy-groups:
 
     # 单独的应用
     - { name: "[单]-TikTok🎵", type: select, proxies: *country_pr }
-    - { name: "[单]-Telegram📲", type: select, proxies: *with_global }
+    - { name: "[单]-Telegram📲", type: select, proxies: *all_pr }
     - { name: "[单]-Netflix🎥", type: select, proxies: *country_pr }
     - {
           name: "[单]-WhatsApp💬",
           type: select,
-          proxies: *with_normal,
+          proxies: *simplest_pr,
           include-all: true,
           filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK|香港))",
       }
@@ -121,7 +139,7 @@ proxy-groups:
           type: select,
           proxies: ["🇨🇳 直连", "🚀 国外流量", "[类]-海外AI🤖"],
       }
-    - { name: "[单]-YouTube📹", type: select, proxies: *with_global }
+    - { name: "[单]-YouTube📹", type: select, proxies: *all_pr }
     - {
           name: "[单]-Shopee🛍️",
           type: select,
@@ -132,14 +150,14 @@ proxy-groups:
     - {
           name: "[单]-Facebook👥",
           type: select,
-          proxies: *with_normal,
+          proxies: *simplest_pr,
           include-all: true,
           filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK|香港))",
       }
     - {
           name: "[单]-LinkedIn👥",
           type: select,
-          proxies: *with_normal,
+          proxies: *simplest_pr,
           include-all: true,
           filter: "(?=(台|TW|坡|狮城|SG|KR|韩|日|JP|Japan|🇭🇰|🇯🇵|🇸🇬|🇺🇸|美|HK|香港))",
       }
@@ -206,6 +224,14 @@ proxy-groups:
           tolerance: 23,
           interval: 200,
           filter: "(?=(坡|狮城|SG|Singapore|🇸🇬))(?!.*(1\\.5|倍率:2|用))",
+      }
+    - {
+          name: "[自动]-澳洲🇦🇺",
+          type: url-test,
+          include-all: true,
+          tolerance: 23,
+          interval: 200,
+          filter: "(?=(澳|AU|🇦🇺))(?!.*(1\\.5|倍率:2|用))",
       }
 
 # 规则匹配
